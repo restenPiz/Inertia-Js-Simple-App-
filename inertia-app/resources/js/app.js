@@ -1,7 +1,11 @@
 import './bootstrap';
+import { createInertiaApp } from '@inertiajs/inertia-react';
 
 export default function App() {
-    return (
-        <h1>Ola Mundo</h1>
-    );
+    createInertiaApp({
+        resolve: name => require(`./Pages/${name}`),
+        setup({ el, App, props }) {
+            render(<App {...props} />, el);
+        },
+    });
 }
