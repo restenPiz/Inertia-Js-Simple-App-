@@ -8,7 +8,8 @@
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    @vite('resources/js/app.js')
+    @viteReactRefresh
+    @vite('resources/js/app.jsx')
 </head>
 
 <body>
