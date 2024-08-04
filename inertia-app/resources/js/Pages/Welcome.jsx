@@ -1,35 +1,42 @@
 import React from "react";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Sidenav, Nav } from 'rsuite';
+import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
+import GroupIcon from '@rsuite/icons/legacy/Group';
+import MagicIcon from '@rsuite/icons/legacy/Magic';
+import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
 
 function Welcome() {
     return (
-        <Navbar expand="lg" className="bg-body-tertiary">
-            <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="me-auto">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
-                    <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.2">
-                        Another action
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                    <NavDropdown.Divider />
-                    <NavDropdown.Item href="#action/3.4">
-                        Separated link
-                    </NavDropdown.Item>
-                    </NavDropdown>
-                </Nav>
-                </Navbar.Collapse>
-            </Container>
-        </Navbar>
+        <div style={{ width: 240 }}>
+            <Sidenav defaultOpenKeys={['3', '4']}>
+                <Sidenav.Body>
+                    <Nav activeKey="1">
+                        <Nav.Item eventKey="1" icon={<DashboardIcon />}>
+                            Dashboard
+                        </Nav.Item>
+                        <Nav.Item eventKey="2" icon={<GroupIcon />}>
+                            User Group
+                        </Nav.Item>
+                        <Nav.Menu eventKey="3" title="Advanced" icon={<MagicIcon />}>
+                            <Nav.Item eventKey="3-1">Geo</Nav.Item>
+                            <Nav.Item eventKey="3-2">Devices</Nav.Item>
+                            <Nav.Item eventKey="3-3">Loyalty</Nav.Item>
+                            <Nav.Item eventKey="3-4">Visit Depth</Nav.Item>
+                        </Nav.Menu>
+                        <Nav.Menu eventKey="4" title="Settings" icon={<GearCircleIcon />}>
+                            <Nav.Item eventKey="4-1">Applications</Nav.Item>
+                            <Nav.Item eventKey="4-2">Channels</Nav.Item>
+                            <Nav.Item eventKey="4-3">Versions</Nav.Item>
+                            <Nav.Menu eventKey="4-5" title="Custom Action">
+                                <Nav.Item eventKey="4-5-1">Action Name</Nav.Item>
+                                <Nav.Item eventKey="4-5-2">Action Params</Nav.Item>
+                            </Nav.Menu>
+                        </Nav.Menu>
+                    </Nav>
+                </Sidenav.Body>
+            </Sidenav>
+        </div>
     );
-}
+};
 
 export default Welcome;

@@ -24,6 +24,8 @@
         "bootstrap": "^5.3.3",
         "react": "^18.3.1",
         "react-bootstrap": "^2.10.4",
-        "react-dom": "^18.3.1"
+        "react-bootstrap-sidebar-menu": "^2.0.3",
+        "react-dom": "^18.3.1",
+        "rsuite": "^5.68.1"
     }
 }

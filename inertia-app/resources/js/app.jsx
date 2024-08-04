@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { InertiaProgress } from '@inertiajs/progress';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'rsuite/dist/rsuite.min.css';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
