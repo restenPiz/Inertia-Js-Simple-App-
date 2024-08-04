@@ -6,6 +6,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
+//*Inicio do metodo responsavel pelo retorno do app
 createInertiaApp({
     title: title => `${title} - ${appName}`,
     resolve: name =>
