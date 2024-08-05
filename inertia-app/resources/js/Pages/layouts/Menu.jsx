@@ -1,9 +1,8 @@
 import React from 'react';
 import { Navbar, Nav } from 'rsuite';
-import HomeIcon from '@rsuite/icons/legacy/Home';
 import CogIcon from '@rsuite/icons/legacy/Cog';
 
-const Menu = ({ onSelect, activeKey, ...props }) => {
+function Menu() {
     return (
         <Navbar {...props}>
             <Navbar.Brand href="#">RSUITE</Navbar.Brand>
@@ -22,20 +21,6 @@ const Menu = ({ onSelect, activeKey, ...props }) => {
             </Nav>
         </Navbar>
     );
-};
+}
 
-const App = () => {
-    const [activeKey, setActiveKey] = React.useState(null);
-
-    return (
-        <>
-            <CustomNavbar activeKey={activeKey} onSelect={setActiveKey} />
-            <hr />
-            <CustomNavbar appearance="inverse" activeKey={activeKey} onSelect={setActiveKey} />
-            <hr />
-            <CustomNavbar appearance="subtle" activeKey={activeKey} onSelect={setActiveKey} />
-        </>
-    );
-};
-
-ReactDOM.render(<App />, document.getElementById('root'));
+export default Menu;
