@@ -6,7 +6,6 @@ import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
 import GroupIcon from '@rsuite/icons/legacy/Group';
 import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
 import '../Pages/styles/styles.css';
-import { Menu } from '../Pages/layouts/Menu';
 
 function Welcome() {
     return (
@@ -29,7 +28,6 @@ function Welcome() {
                     </Sidenav.Body>
                 </Sidenav>
             </div>
-            <Menu />
         </div>
 
     );
