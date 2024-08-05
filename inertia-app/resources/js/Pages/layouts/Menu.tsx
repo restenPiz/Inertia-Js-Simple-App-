@@ -4,9 +4,9 @@ import CogIcon from '@rsuite/icons/legacy/Cog';
 
 function Menu() {
     return (
-        <Navbar {...props}>
+        <Navbar>
             <Navbar.Brand href="#">RSUITE</Navbar.Brand>
-            <Nav onSelect={onSelect} activeKey={activeKey}>
+            <Nav>
                 <Nav.Item eventKey="1">Home</Nav.Item>
                 <Nav.Item eventKey="2">News</Nav.Item>
                 <Nav.Item eventKey="3">Products</Nav.Item>
