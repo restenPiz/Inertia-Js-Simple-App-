@@ -4,6 +4,7 @@ import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
 import GroupIcon from '@rsuite/icons/legacy/Group';
 import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
 import '../Pages/styles/styles.css';
+import { Table } from 'rsuite';
 
 function Welcome() {
     return (
@@ -27,9 +28,6 @@ function Welcome() {
                                 </Nav>
                             </Sidenav.Body>
                         </Sidenav>
-                    </div>
-                    <div style={{ flexGrow: 1, padding: '20px' }}>
-                        <h1>Ola Mundo</h1>
                     </div>
                 </div>
             </div>
