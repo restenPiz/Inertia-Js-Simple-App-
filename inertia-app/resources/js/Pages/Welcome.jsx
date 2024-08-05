@@ -4,7 +4,6 @@ import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
 import GroupIcon from '@rsuite/icons/legacy/Group';
 import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
 import '../Pages/styles/styles.css';
-import { Table } from 'rsuite';
 
 function Welcome() {
     return (
