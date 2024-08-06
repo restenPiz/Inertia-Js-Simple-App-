@@ -9,6 +9,7 @@ import '../Pages/styles/styles.css';
 
 function Welcome() {
     return (
+        //*Something will change here
         <div style={{ display: 'flex', height: '100vh' }}>
             <div style={{ width: 240 }}>
                 <Sidenav defaultOpenKeys={['3', '4']}>
