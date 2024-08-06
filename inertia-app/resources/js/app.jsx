@@ -3,7 +3,7 @@ import { createInertiaApp } from '@inertiajs/inertia-react';
 import { createRoot } from 'react-dom/client';
 import { InertiaProgress } from '@inertiajs/progress';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import "./src/index.css";
+import "../js/src/index.css";
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 

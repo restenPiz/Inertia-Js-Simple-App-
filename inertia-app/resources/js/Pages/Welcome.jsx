@@ -1,11 +1,6 @@
 'use client';
 
 import React from "react";
-import { Sidenav, Nav } from 'rsuite';
-import DashboardIcon from '@rsuite/icons/legacy/Dashboard';
-import GroupIcon from '@rsuite/icons/legacy/Group';
-import GearCircleIcon from '@rsuite/icons/legacy/GearCircle';
-import '../src/index.css';
 
 function Welcome() {
     return (
