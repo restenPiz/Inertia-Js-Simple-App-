@@ -7,7 +7,11 @@ import Sidebar from "../Components/Sidebar";
 function Welcome() {
     return (
         //*Something will change here
-        <Sidebar />
+
+        <>
+            <Sidebar />
+        </>
+
     );
 };
 
