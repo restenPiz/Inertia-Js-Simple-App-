@@ -21,9 +21,11 @@
     },
     "dependencies": {
         "@babel/preset-react": "^7.24.7",
+        "@heroicons/react": "^2.1.5",
         "@inertiajs/inertia-react": "^0.8.1",
         "@inertiajs/progress": "^0.2.7",
         "@inertiajs/react": "^1.2.0",
+        "@material-tailwind/react": "^2.1.9",
         "bootstrap": "^5.3.3",
         "react": "^18.3.1",
         "react-bootstrap": "^2.10.4",
