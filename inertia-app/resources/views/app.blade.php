@@ -8,6 +8,7 @@
     <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <link href="{{ asset('src/index.css') }}" rel="stylesheet" />
     @viteReactRefresh
     @vite('resources/js/app.jsx')
 </head>
