@@ -1,106 +1,44 @@
 import { Card, Typography } from "@material-tailwind/react";
 import React from "react";
 
-const TABLE_HEAD = ["Name", "Job", "Employed", ""];
-
-const TABLE_ROWS = [
-    {
-        name: "John Michael",
-        job: "Manager",
-        date: "23/04/18",
-    },
-    {
-        name: "Alexa Liras",
-        job: "Developer",
-        date: "23/04/18",
-    },
-    {
-        name: "Laurent Perrier",
-        job: "Executive",
-        date: "19/09/17",
-    },
-    {
-        name: "Michael Levi",
-        job: "Developer",
-        date: "24/12/08",
-    },
-    {
-        name: "Richard Gran",
-        job: "Manager",
-        date: "04/10/21",
-    },
-];
-
 export function MainTable() {
     return (
         <Card className="h-full w-full overflow-scroll">
-            <table className="w-full min-w-max table-auto text-left">
+            <table>
                 <thead>
                     <tr>
-                        {TABLE_HEAD.map((head) => (
-                            <th
-                                key={head}
-                                className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
-                            >
-                                <Typography
-                                    variant="small"
-                                    color="blue-gray"
-                                    className="font-normal leading-none opacity-70"
-                                >
-                                    {head}
-                                </Typography>
-                            </th>
-                        ))}
+                        <th scope="col" rowspan="2">Name</th>
+                        <th scope="col" rowspan="2">ID</th>
+                        <th scope="col" colspan="2">Membership Dates</th>
+                        <th scope="col" rowspan="2">Balance</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">Joined</th>
+                        <th scope="col">Canceled</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {TABLE_ROWS.map(({ name, job, date }, index) => {
-                        const isLast = index === TABLE_ROWS.length - 1;
-                        const classes = isLast ? "p-4" : "p-4 border-b border-blue-gray-50";
-
-                        return (
-                            <tr key={name}>
-                                <td className={classes}>
-                                    <Typography
-                                        variant="small"
-                                        color="blue-gray"
-                                        className="font-normal"
-                                    >
-                                        {name}
-                                    </Typography>
-                                </td>
-                                <td className={classes}>
-                                    <Typography
-                                        variant="small"
-                                        color="blue-gray"
-                                        className="font-normal"
-                                    >
-                                        {job}
-                                    </Typography>
-                                </td>
-                                <td className={classes}>
-                                    <Typography
-                                        variant="small"
-                                        color="blue-gray"
-                                        className="font-normal"
-                                    >
-                                        {date}
-                                    </Typography>
-                                </td>
-                                <td className={classes}>
-                                    <Typography
-                                        as="a"
-                                        href="#"
-                                        variant="small"
-                                        color="blue-gray"
-                                        className="font-medium"
-                                    >
-                                        Edit
-                                    </Typography>
-                                </td>
-                            </tr>
-                        );
-                    })}
+                    <tr>
+                        <th scope="row">Margaret Nguyen</th>
+                        <td>427311</td>
+                        <td><time datetime="2010-06-03">June 3, 2010</time></td>
+                        <td>n/a</td>
+                        <td>0.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Edvard Galinski</th>
+                        <td>533175</td>
+                        <td><time datetime="2011-01-13">January 13, 2011</time></td>
+                        <td><time datetime="2017-04-08">April 8, 2017</time></td>
+                        <td>37.00</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Hoshi Nakamura</th>
+                        <td>601942</td>
+                        <td><time datetime="2012-07-23">July 23, 2012</time></td>
+                        <td>n/a</td>
+                        <td>15.00</td>
+                    </tr>
                 </tbody>
             </table>
         </Card>
