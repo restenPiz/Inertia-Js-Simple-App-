@@ -2,43 +2,38 @@
 import React from "react";
 import '../src/index.css';
 
+const columns = [
+    { Name: 'Nome', ID: 'ID', Member: 'Membership', Balance: 'Balance' },
+]
+const rows = [
+    { Name: 'Margaret Nguyen', ID: '427311', Member: 'June 3, 2010', Balance: 'n/a<' },
+    { Name: 'Edvard Galinski', ID: '533175', Member: 'January 13, 2011</time>', Balance: '37.00' },
+    { Name: 'Hoshi Nakamura', ID: '533175', Member: 'January 13, 2011</time>', Balance: '15.00' },
+]
+
 export default function MainTable() {
     return (
         <table className="styled-table">
             <thead>
-                <tr>
-                    <th scope="col" rowspan="2">Name</th>
-                    <th scope="col" rowspan="2">ID</th>
-                    <th scope="col" colspan="2">Membership Dates</th>
-                    <th scope="col" rowspan="2">Balance</th>
-                </tr>
-                <tr>
-                    <th scope="col">Joined</th>
-                    <th scope="col">Canceled</th>
-                </tr>
+                {columns.map(column => (
+                    <tr>
+                        <th scope="col" rowSpan="2">{column.Name}</th>
+                        <th scope="col" rowSpan="2">{column.ID}</th>
+                        <th scope="col" colSpan="2"><time dateTime="2010-06-03">{column.Member}</time></th>
+                        <th scope="col" rowSpan="2">{column.Balance}</th>
+                    </tr>
+                ))}
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">Margaret Nguyen</th>
-                    <td>427311</td>
-                    <td><time datetime="2010-06-03">June 3, 2010</time></td>
-                    <td>n/a</td>
-                    <td>0.00</td>
-                </tr>
-                <tr>
-                    <th scope="row">Edvard Galinski</th>
-                    <td>533175</td>
-                    <td><time datetime="2011-01-13">January 13, 2011</time></td>
-                    <td><time datetime="2017-04-08">April 8, 2017</time></td>
-                    <td>37.00</td>
-                </tr>
-                <tr>
-                    <th scope="row">Hoshi Nakamura</th>
-                    <td>601942</td>
-                    <td><time datetime="2012-07-23">July 23, 2012</time></td>
-                    <td>n/a</td>
-                    <td>15.00</td>
-                </tr>
+                {rows.map(row => (
+                    <tr>
+                        <th scope="row">{row.Name}</th>
+                        <td>{row.ID}</td>
+                        <td><time dateTime="2012-07-23">{row.Member}</time></td>
+                        <td>{row.Balance}</td>
+                        <td></td>
+                    </tr>
+                ))}
             </tbody>
         </table>
     );
