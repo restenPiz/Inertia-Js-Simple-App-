@@ -7,3 +7,5 @@ use Inertia\Inertia;
 Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('Welcome');
+
+Route::inertia('/truck', 'Truck');
