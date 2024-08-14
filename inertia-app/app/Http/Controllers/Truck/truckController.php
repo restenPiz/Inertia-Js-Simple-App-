@@ -10,6 +10,6 @@ class truckController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Pages.About');
+        return Inertia::render('Truck');
     }
 }
