@@ -12,3 +12,4 @@ Route::get('/', function () {
 
 Route::get('/index', [mainController::class, 'index']);
 Route::get('/truck', [truckController::class, 'index']);
+Route::get('/storeTruck', [truckController::class, 'store']);
