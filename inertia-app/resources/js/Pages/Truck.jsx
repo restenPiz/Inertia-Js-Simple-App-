@@ -39,7 +39,7 @@ export default function Truck() {
                 {/* Início do formulário */}
                 <form className="bg-white p-6 rounded-lg shadow" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                        <div className="sm:col-span-4">
+                        <div className="sm:col-span-6">
                             <label htmlFor="truck-name" className="block text-sm font-medium leading-6 text-gray-900">
                                 Truck Name
                             </label>
@@ -55,7 +55,7 @@ export default function Truck() {
                             </div>
                         </div>
 
-                        <div className="sm:col-span-4">
+                        <div className="sm:col-span-6">
                             <label htmlFor="truck-weight" className="block text-sm font-medium leading-6 text-gray-900">
                                 Truck Weight
                             </label>
@@ -71,7 +71,28 @@ export default function Truck() {
                             </div>
                         </div>
 
-                        <div className="sm:col-span-4">
+                        <div className="sm:col-span-6">
+                            <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
+                                Park Location
+                            </label>
+                            <div className="mt-2">
+                                <select
+                                    id="country"
+                                    name="country"
+                                    autoComplete="country-name"
+                                    className="block w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                >
+                                    <option>Manica</option>
+                                    <option>Sofala</option>
+                                    <option>Tete</option>
+                                    <option>Zambezia</option>
+                                    <option>Nampula</option>
+                                    <option>Cabo Delgado</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div className="sm:col-span-6">
                             <label htmlFor="truck-weight" className="block text-sm font-medium leading-6 text-gray-900">
                                 Driver's Name
                             </label>
