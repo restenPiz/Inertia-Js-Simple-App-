@@ -1,6 +1,7 @@
 'use client';
 
 import React from "react";
+import Body from "../Components/Body";
 import Sidebar from "../Components/Sidebar";
 
 function Welcome() {
@@ -8,6 +9,7 @@ function Welcome() {
         //*Something will change here
         <>
             <Sidebar />
+            <Body />
         </>
     );
 };

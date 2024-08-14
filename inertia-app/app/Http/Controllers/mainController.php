@@ -9,6 +9,6 @@ class mainController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Body');
+        return Inertia::render('Welcome');
     }
 }

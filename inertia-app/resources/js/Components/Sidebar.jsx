@@ -159,7 +159,6 @@ export default function Sidebar() {
                     </div>
                 </DisclosurePanel>
             </Disclosure>
-            <Body />
         </div>
     );
 }
