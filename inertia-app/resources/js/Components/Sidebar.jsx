@@ -13,7 +13,7 @@ const user = {
 const navigation = [
     { name: 'Dashboard', href: '#', current: true },
     { name: 'Team', href: '#', current: false },
-    { name: 'Truck', href: '#', current: false },
+    { name: 'Truck', href: './Truck', current: false },
     { name: 'Park', href: '#', current: false },
     { name: 'Settings', href: '#', current: false },
 ]
