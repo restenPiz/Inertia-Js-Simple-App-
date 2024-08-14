@@ -2,6 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import Body from './Body';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import Rotas from '../Components/Routes';
 
 const user = {
     name: 'Tom Cook',
@@ -27,7 +28,7 @@ function classNames(...classes) {
 
 export default function Sidebar() {
     return (
-        <>
+        <Router>
             <div className="min-h-full">
                 <Disclosure as="nav" className="bg-gray-800">
                     <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -159,7 +160,10 @@ export default function Sidebar() {
                     </DisclosurePanel>
                 </Disclosure>
                 <Body />
+
+                {/*Inicio do componente Rotas*/}
+                <Rotas />
             </div>
-        </>
+        </Router>
     )
 }
