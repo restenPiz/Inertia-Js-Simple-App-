@@ -19,4 +19,10 @@ class Truck extends Model
         'Driver_name',
         'Total_value'
     ];
+
+    //*Inicio dos metodos responsaveis por sincronizar as tabelas
+    public function park()
+    {
+        return $this->belongsTo(Park::class, 'id');
+    }
 }
