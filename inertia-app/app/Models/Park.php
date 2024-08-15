@@ -17,4 +17,10 @@ class Park extends Model
         'Park_location',
         'Park_capacity'
     ];
+
+    //?Inicio das rotas de sincronizacao de tabelas
+    public function truck()
+    {
+        return $this->hasMany(Truck::class, 'id');
+    }
 }
