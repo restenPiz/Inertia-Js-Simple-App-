@@ -13,14 +13,15 @@ export default function Body() {
             <main>
                 <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                     {/* <h1>My Content</h1> */}
-                    <div className="flex flex-row gap-x-6">
+                    <BarChart />
+                    {/* <div className="flex flex-row gap-x-6">
                         <div className="basis-1/2">
-                            <BarChart />
+                            
                         </div>
-                        <div className="basis-1/2">
+                        {/* <div className="basis-1/2">
                             <MainTable />
-                        </div>
-                    </div>
+                        </div> 
+                    </div> */}
                 </div>
             </main>
         </>
