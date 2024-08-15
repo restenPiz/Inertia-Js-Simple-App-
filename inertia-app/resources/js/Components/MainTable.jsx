@@ -34,6 +34,6 @@ export default function MainTable() {
                     </tr>
                 ))}
             </tbody>
-        </table >
+        </table>
     );
 }
