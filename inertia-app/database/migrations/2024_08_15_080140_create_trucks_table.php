@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('trucks', function (Blueprint $table) {
             $table->id();
             $table->string('Truck_name');
+            $table->string('Truck_weight');
             $table->string('Truck_code');
             $table->string('Park_location');
             $table->string('Driver_name');
