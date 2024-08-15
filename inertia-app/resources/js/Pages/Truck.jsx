@@ -107,6 +107,38 @@ export default function Truck() {
                                 />
                             </div>
                         </div>
+
+                        <div className="sm:col-span-6">
+                            <label htmlFor="truck-weight" className="block text-sm font-medium leading-6 text-gray-900">
+                                Truck Code
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    id="first-name"
+                                    name="Truck_code"
+                                    placeholder="Ex: ALO 355 MP"
+                                    type="text" value={values.Truck_code}
+                                    autoComplete="given-name" onChange={handleChange}
+                                    className="block w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="sm:col-span-6">
+                            <label htmlFor="truck-weight" className="block text-sm font-medium leading-6 text-gray-900">
+                                Rest_days
+                            </label>
+                            <div className="mt-2">
+                                <input
+                                    id="first-name"
+                                    name="first-name"
+                                    placeholder="Ex: 3 Days"
+                                    type="text" value={values.Rest_days}
+                                    autoComplete="given-name" onChange={handleChange}
+                                    className="block w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                />
+                            </div>
+                        </div>
                     </div>
 
                     <div className="mt-6 flex items-center gap-x-6">
