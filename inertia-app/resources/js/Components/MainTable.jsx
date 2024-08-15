@@ -33,7 +33,7 @@ export default function MainTable() {
                         <td scope="col">{row.Member}</td>
                     </tr>
                 ))}
-            </tbody>
+            </tbody>x
         </table>
     );
 }
