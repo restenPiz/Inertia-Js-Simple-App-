@@ -1,17 +1,14 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
-  darkMode: ["class"],
-  content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
-  ],
-  prefix: "",
-  theme: {
 
-    extend: {
-    },
+module.exports = {
+  content: [
+    './resources/**/*.blade.php',
+    './resources/**/*.js',
+    './resources/**/*.jsx',
+    './resources/**/*.vue',
+  ],
+  theme: {
+    extend: {},
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 }
