@@ -1,7 +1,6 @@
 
 import React from "react";
-import '../src/index.css';
-import { Table } from "react-bootstrap";
+// import '../src/index.css';
 
 const columns = [
     { Name: 'Truck Name', ID: 'Truck Weight', Member: 'Driver Name', Park: 'Park Location' },
@@ -23,12 +22,18 @@ export default function MainTable() {
                         <th scope="col" rowSpan="2">{column.Name}</th>
                         <th scope="col" rowSpan="2">{column.ID}</th>
                         <th scope="col" colSpan="2">{column.Member}</th>
+                        <th scope="col" rowSpan="2">{column.Name}</th>
+                        <th scope="col" rowSpan="2">{column.ID}</th>
+                        <th scope="col" colSpan="2">{column.Member}</th>
                     </tr>
                 ))}
             </thead>
             <tbody>
                 {rows.map(row => (
                     <tr>
+                        <th scope="col">{row.Name}</th>
+                        <td scope="col">{row.ID}</td>
+                        <td scope="col">{row.Member}</td>
                         <th scope="col">{row.Name}</th>
                         <td scope="col">{row.ID}</td>
                         <td scope="col">{row.Member}</td>

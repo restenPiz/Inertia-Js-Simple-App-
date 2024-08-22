@@ -152,7 +152,7 @@ export default function Truck() {
                 </form>
 
                 {/* Tabela ao lado do formulário */}
-                <div className="bg-white p-6 rounded-lg shadow">
+                <div className="bg-white p-6 rounded-lg shadow flex-1">
                     <Table />
                 </div>
             </div>
