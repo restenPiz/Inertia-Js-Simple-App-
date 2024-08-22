@@ -17,8 +17,13 @@ export default defineConfig({
             ],
         },
     },
+    resolve: {
+        alias: {
+            'jquery': 'jquery/dist/jquery.min.js',
+            'datatables.net': 'datatables.net/js/jquery.dataTables.min.js',
+        },
+    },
 });
-
 
 // import { defineConfig } from 'vite';
 // import laravel from 'laravel-vite-plugin';

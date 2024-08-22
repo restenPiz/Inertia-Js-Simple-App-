@@ -1,7 +1,9 @@
 
 import React from "react";
 // import '../src/index.css';
-
+import 'datatables.net-dt/css/jquery.dataTables.css';
+import $ from 'jquery';
+import 'datatables.net';
 const columns = [
     { Name: 'Truck Name', ID: 'Truck Weight', Member: 'Driver Name', Park: 'Park Location' },
 ]
@@ -14,8 +16,16 @@ const rows = [
 ]
 
 export default function MainTable() {
+
+    useEffect(() => {
+        // Inicializar DataTables após a renderização do componente
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    }, []);
+
     return (
-        <table className="styled-table">
+        <table id="example" className="display">
             <thead>
                 {columns.map(column => (
                     <tr>
