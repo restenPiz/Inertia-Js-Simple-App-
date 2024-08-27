@@ -33,6 +33,7 @@ class truckController extends Controller
     {
         $table = new Truck();
 
+        //*Inicio do metode de captura
         $table->Ola = Request::input('Ola');
 
         return to_route('Ola Mundo');
