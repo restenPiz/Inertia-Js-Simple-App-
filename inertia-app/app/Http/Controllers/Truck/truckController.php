@@ -28,6 +28,15 @@ class truckController extends Controller
 
         return to_route('truck.index');
     }
+
+    public function updateIndex()
+    {
+        $table = new Truck();
+
+        $table->Ola = Request::input('Ola');
+
+        return to_route('Ola Mundo');
+    }
     public function delete($id)
     {
         $destroy = Truck::findOrFail($id);
