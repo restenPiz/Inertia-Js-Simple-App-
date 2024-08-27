@@ -36,6 +36,10 @@ class truckController extends Controller
 
         return to_route('truck.index');
     }
+    public function returnRout()
+    {
+        return to_route('Index.ola');
+    }
     public function update($id, $request)
     {
         Truck::findOrFail($id);
