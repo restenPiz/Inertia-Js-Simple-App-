@@ -13,15 +13,14 @@ class parkController extends Controller
     {
         return Inertia::render('Park');
     }
-    public function parkStore()
+    public function parkStore(Request $request)
     {
-        $table = new Park();
+        Park::create($request->validate([
+            'Truck_name' => ['required', 'max:50'],
+            'Truck_weight' => ['required', 'max:50'],
+            'Driver_name' => ['required', 'max:50', 'email'],
+        ]));
 
-        $table->Park_name = Request::input('Park_name');
-        $table->Park_location = Request::input('Park_location');
-        $table->Park_capacity = Request::input('Park_capacity');
-
-        $table->save();
 
         return to_route('index');
     }
