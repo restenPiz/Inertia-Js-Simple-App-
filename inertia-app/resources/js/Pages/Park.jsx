@@ -22,7 +22,7 @@ export default function Park() {
 
     function handleSubmit(e) {
         e.preventDefault()
-        router.post('/truck', values)
+        router.post('/parkStore', values)
     }
 
     return (

@@ -13,7 +13,7 @@ class parkController extends Controller
     {
         return Inertia::render('Park');
     }
-    public function savePark()
+    public function parkStore()
     {
         $table = new Park();
 
