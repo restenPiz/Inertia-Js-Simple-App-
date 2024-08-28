@@ -15,11 +15,6 @@ return new class extends Migration {
             $table->string('Driver_name');
             $table->string('Rest_days');
             $table->string('Total_value');
-
-            //*Inicio da chave estrangeira
-            $table->unsignedBigInteger('id');
-            $table->foreign('Park_location')->references('id')->on('parks');
-
             $table->timestamps();
         });
     }
