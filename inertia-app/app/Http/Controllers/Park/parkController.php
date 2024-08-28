@@ -23,7 +23,7 @@ class parkController extends Controller
 
         $table->save();
 
-        return back();
+        return to_route('index');
     }
     public function delete($id)
     {
