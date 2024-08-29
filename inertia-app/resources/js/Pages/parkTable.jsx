@@ -6,7 +6,7 @@ const columns = [
     { Name: 'Park Name', ID: 'Park Location', Total: 'Total_Capacity' },
 ]
 
-export default function ParkTable({ parks }) {
+export default function ParkTable({ parks, onDelete }) {
     return (
         <table className="styled-table">
             <thead>
@@ -31,7 +31,7 @@ export default function ParkTable({ parks }) {
                             >
                                 Edit
                             </button>
-                            <button onClick={() => handleDelete(park.id)}
+                            <button onClick={() => onDelete(park.id)}
                                 className="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded hover:bg-red-600"
                             >
                                 Delete

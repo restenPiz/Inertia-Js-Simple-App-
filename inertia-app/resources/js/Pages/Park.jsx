@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../Components/Sidebar";
 import ParkTable from "./parkTable";
-import { useForm } from '@inertiajs/inertia-react';
+import { useForm, usePage } from '@inertiajs/inertia-react';
 
 export default function Park({ parks }) {
     const { data, setData, post, reset } = useForm({
@@ -9,6 +9,8 @@ export default function Park({ parks }) {
         Park_location: "",
         Park_capacity: "",
     });
+
+    const { flash } = usePage().props;
 
     function handleChange(e) {
         const key = e.target.name;
@@ -29,7 +31,9 @@ export default function Park({ parks }) {
     }
 
     function handleDelete(id) {
-        Inertia.delete(`/parks/${id}`);
+        if (confirm("Are you sure you want to delete this park?")) {
+            Inertia.delete(`/parkDelete/${id}`);
+        }
     }
 
     return (
@@ -107,7 +111,7 @@ export default function Park({ parks }) {
                 </form>
 
                 <div className="bg-white p-6 rounded-lg shadow">
-                    <ParkTable parks={parks} />
+                    <ParkTable parks={parks} onDelete={handleDelete} />
                 </div>
             </div>
         </>
