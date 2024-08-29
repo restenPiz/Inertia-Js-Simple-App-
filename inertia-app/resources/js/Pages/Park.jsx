@@ -24,6 +24,16 @@ export default function Park({ parks }) {
         });
     }
 
+    function handleEdit(id) {
+        Inertia.get(`/parks/${id}/edit`);
+    }
+
+    function handleDelete(id) {
+        if (confirm("Are you sure you want to delete this park?")) {
+            Inertia.delete(`/parks/${id}`);
+        }
+    }
+
     return (
         <>
             <Sidebar />
