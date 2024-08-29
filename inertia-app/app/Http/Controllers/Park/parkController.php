@@ -29,10 +29,12 @@ class parkController extends Controller
     }
     public function delete($id)
     {
-        $park = Park::findOrFail($id);
+        $parks = Park::findOrFail($id);
 
-        $park->delete();
+        $parks->delete();
 
-        return redirect()->route('index');
+        return Inertia::render('Park', [
+            'parks' => $parks,
+        ]);
     }
 }

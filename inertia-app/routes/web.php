@@ -21,6 +21,7 @@ Route::get('/storeTruck', [truckController::class, 'store'])->name('storeTruck')
 //?Inicio das rotas do parque
 Route::get('/park', [parkController::class, 'index'])->name('index');
 Route::post('/parkStore', [parkController::class, 'parkStore'])->name('parkStore');
+Route::delete('/parkDelete/{id}', [ParkController::class, 'delete'])->name('parkDelete');
 
 //?Inicio da rota da parte de definicoes
 Route::get('/settings', [settingsController::class, 'index'])->name('settings');
