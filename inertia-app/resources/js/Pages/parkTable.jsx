@@ -15,6 +15,7 @@ export default function ParkTable({ parks }) {
                         <th scope="col" rowSpan="2">{column.Name}</th>
                         <th scope="col" rowSpan="2">{column.ID}</th>
                         <th scope="col" rowSpan="2">{column.Total}</th>
+                        <th>Actions</th>
                     </tr>
                 ))}
             </thead>
@@ -24,6 +25,18 @@ export default function ParkTable({ parks }) {
                         <td>{park.Park_name}</td>
                         <td>{park.Park_location}</td>
                         <td>{park.Park_capacity}</td>
+                        <td>
+                            <button
+                                className="px-4 py-2 mr-2 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600"
+                            >
+                                Edit
+                            </button>
+                            <button
+                                className="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded hover:bg-red-600"
+                            >
+                                Delete
+                            </button>
+                        </td>
                     </tr>
                 ))}
             </tbody>
