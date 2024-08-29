@@ -12,15 +12,15 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('Welcome');
 
-Route::get('/index', [mainController::class, 'index']);
+Route::get('/index', [mainController::class, 'index'])->name('main');
 
 //?Inicio das rotas de camioes
-Route::get('/truck', [truckController::class, 'index']);
-Route::get('/storeTruck', [truckController::class, 'store']);
+Route::get('/truck', [truckController::class, 'index'])->name('truck');
+Route::get('/storeTruck', [truckController::class, 'store'])->name('storeTruck');
 
 //?Inicio das rotas do parque
 Route::get('/park', [parkController::class, 'index'])->name('index');
-Route::post('/parkStore', [parkController::class, 'parkStore']);
+Route::post('/parkStore', [parkController::class, 'parkStore'])->name('parkStore');
 
 //?Inicio da rota da parte de definicoes
-Route::get('/settings', [settingsController::class, 'index']);
+Route::get('/settings', [settingsController::class, 'index'])->name('settings');
