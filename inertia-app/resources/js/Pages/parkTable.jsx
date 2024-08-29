@@ -26,12 +26,12 @@ export default function ParkTable({ parks }) {
                         <td>{park.Park_location}</td>
                         <td>{park.Park_capacity}</td>
                         <td>
-                            <button onSubmit={handleEdit}
+                            <button onClick={() => handleEdit(park.id)}
                                 className="px-4 py-2 mr-2 text-sm font-medium text-white bg-blue-500 rounded hover:bg-blue-600"
                             >
                                 Edit
                             </button>
-                            <button onSubmit={handleDelete}
+                            <button onClick={() => handleDelete(park.id)}
                                 className="px-4 py-2 text-sm font-medium text-white bg-red-500 rounded hover:bg-red-600"
                             >
                                 Delete
