@@ -16,11 +16,10 @@ class parkController extends Controller
     public function parkStore(Request $request)
     {
         Park::create($request->validate([
-            'Truck_name' => ['required', 'max:50'],
-            'Truck_weight' => ['required', 'max:50'],
-            'Driver_name' => ['required', 'max:50', 'email'],
+            'Park_name' => ['required', 'max:50'],
+            'Park_location' => ['required', 'max:50'],
+            'Park_capacity' => ['required', 'max:50'],
         ]));
-
 
         return to_route('index');
     }

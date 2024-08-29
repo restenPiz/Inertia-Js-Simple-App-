@@ -19,7 +19,7 @@ Route::get('/truck', [truckController::class, 'index']);
 Route::get('/storeTruck', [truckController::class, 'store']);
 
 //?Inicio das rotas do parque
-Route::get('/park', [parkController::class, 'index']);
+Route::get('/park', [parkController::class, 'index'])->name('index');
 Route::post('/parkStore', [parkController::class, 'parkStore']);
 
 //?Inicio da rota da parte de definicoes

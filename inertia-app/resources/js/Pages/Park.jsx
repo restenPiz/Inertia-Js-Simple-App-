@@ -1,30 +1,29 @@
 import React from "react";
 import Sidebar from "../Components/Sidebar";
 import Table from "./parkTable";
-import { useState } from "react";
-import { router } from '@inertiajs/react'
+// import { useState } from "react";
+// import { router } from '@inertiajs/react'
+import { useForm } from '@inertiajs/inertia-react';
 
 export default function Park() {
-    const [values, setValues] = useState({
-        Truck_name: "",
-        Truck_weight: "",
-        Driver_name: "",
+    const { data, setData, post } = useForm({
+        Park_name: "",
+        Park_location: "",
+        Park_capacity: "",
     });
 
     function handleChange(e) {
-        const key = e.target.name; // Usar 'name' ao invés de 'id'
+        const key = e.target.id;
         const value = e.target.value;
-        setValues((values) => ({
-            ...values,
-            [key]: value,
-        }));
+        setData(key, value);
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        router.post('/parkStore', values);
+        post('/parkStore', {
+            preserveScroll: true, // Adiciona isso para evitar o recarregamento
+        });
     }
-
     return (
         <>
             <Sidebar />
@@ -44,10 +43,10 @@ export default function Park() {
                             <div className="mt-2">
                                 <input
                                     id="Truck_name"
-                                    name="Truck_name"
+                                    name="Park_name"
                                     placeholder="Ex: Mabocoto"
                                     type="text"
-                                    value={values.Truck_name}
+                                    value={values.Park_name}
                                     onChange={handleChange}
                                     className="w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -61,10 +60,10 @@ export default function Park() {
                             <div className="mt-2">
                                 <input
                                     id="Truck_weight"
-                                    name="Truck_weight"
+                                    name="Park_location"
                                     placeholder="Ex: Manica"
                                     type="text"
-                                    value={values.Truck_weight}
+                                    value={values.Park_location}
                                     onChange={handleChange}
                                     className="w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -78,10 +77,10 @@ export default function Park() {
                             <div className="mt-2">
                                 <input
                                     id="Driver_name"
-                                    name="Driver_name"
+                                    name="Park_capacity"
                                     placeholder="Total Park Capacity"
                                     type="text"
-                                    value={values.Driver_name}
+                                    value={values.Park_capacity}
                                     onChange={handleChange}
                                     className="w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />

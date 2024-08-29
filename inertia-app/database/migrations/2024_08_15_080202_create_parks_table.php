@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('parks', function (Blueprint $table) {
             $table->id();
             $table->string('Park_name');
-            $table->integer('Park_location');
+            $table->string('Park_location');
             $table->string('Park_capacity');
             $table->timestamps();
         });
