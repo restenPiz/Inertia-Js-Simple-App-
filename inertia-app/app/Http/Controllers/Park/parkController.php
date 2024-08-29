@@ -33,6 +33,6 @@ class parkController extends Controller
 
         $park->delete();
 
-        return back();
+        return redirect()->route('index');
     }
 }

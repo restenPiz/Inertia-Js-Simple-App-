@@ -1,5 +1,3 @@
-// import { useState } from "react";
-// import { router } from '@inertiajs/react'
 import React from "react";
 import Sidebar from "../Components/Sidebar";
 import ParkTable from "./parkTable";
@@ -22,7 +20,7 @@ export default function Park({ parks }) {
         e.preventDefault();
         post('/parkStore', {
             preserveScroll: true,
-            onSuccess: () => reset(),  // Isso vai limpar os campos após o envio
+            onSuccess: () => reset(),
         });
     }
 
@@ -48,7 +46,7 @@ export default function Park({ parks }) {
                                     name="Park_name"
                                     placeholder="Ex: Mabocoto"
                                     type="text"
-                                    value={data.Park_name}  // Atualize aqui para `data.Park_name`
+                                    value={data.Park_name}
                                     onChange={handleChange}
                                     className="w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -65,7 +63,7 @@ export default function Park({ parks }) {
                                     name="Park_location"
                                     placeholder="Ex: Manica"
                                     type="text"
-                                    value={data.Park_location}  // Atualize aqui para `data.Park_location`
+                                    value={data.Park_location}
                                     onChange={handleChange}
                                     className="w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -82,7 +80,7 @@ export default function Park({ parks }) {
                                     name="Park_capacity"
                                     placeholder="Total Park Capacity"
                                     type="text"
-                                    value={data.Park_capacity}  // Atualize aqui para `data.Park_capacity`
+                                    value={data.Park_capacity}
                                     onChange={handleChange}
                                     className="w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
