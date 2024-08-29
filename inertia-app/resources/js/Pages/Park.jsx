@@ -2,6 +2,7 @@ import React from "react";
 import Sidebar from "../Components/Sidebar";
 import ParkTable from "./parkTable";
 import { useForm, usePage } from '@inertiajs/inertia-react';
+import { Inertia } from '@inertiajs/inertia';
 
 export default function Park({ parks }) {
     const { data, setData, post, reset } = useForm({

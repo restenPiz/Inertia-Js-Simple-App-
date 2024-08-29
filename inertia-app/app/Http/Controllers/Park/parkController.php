@@ -29,12 +29,9 @@ class parkController extends Controller
     }
     public function delete($id)
     {
-        $parks = Park::findOrFail($id);
+        $park = Park::findOrFail($id);
+        $park->delete();
 
-        $parks->delete();
-
-        return Inertia::render('Park', [
-            'parks' => $parks,
-        ]);
+        return back()->with('success', 'Parque deletado com sucesso!');
     }
 }
