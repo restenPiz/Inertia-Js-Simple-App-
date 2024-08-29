@@ -6,7 +6,7 @@ const columns = [
     { Name: 'Park Name', ID: 'Park Location', Total: 'Total_Capacity' },
 ]
 
-export default function parkTable() {
+export default function ParkTable({ parks }) {
     return (
         <table className="styled-table">
             <thead>
