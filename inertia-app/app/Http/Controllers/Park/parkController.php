@@ -21,7 +21,7 @@ class parkController extends Controller
             'Park_capacity' => ['required', 'max:50'],
         ]));
 
-        return response()->json(['message' => 'Parque adicionado com sucesso!']);
+        return redirect()->route('park.index')->with('success', 'Parque adicionado com sucesso!');
     }
     public function delete($id)
     {

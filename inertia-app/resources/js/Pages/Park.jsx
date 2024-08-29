@@ -4,7 +4,7 @@ import React from "react";
 import Sidebar from "../Components/Sidebar";
 import Table from "./parkTable";
 import { useForm } from '@inertiajs/inertia-react';
-import { toast } from 'react-toastify'; // Supondo que você esteja usando react-toastify para os alertas
+import { toast } from 'react-toastify';
 
 export default function Park() {
     const { data, setData, post, reset } = useForm({
@@ -23,10 +23,10 @@ export default function Park() {
         e.preventDefault();
         post('/parkStore', {
             onSuccess: () => {
-                toast.success('Parque adicionado com sucesso!');
+                // toast.success('Parque adicionado com sucesso!');
                 reset(); // Limpa os campos do formulário
             },
-            preserveScroll: true, // Adiciona isso para evitar o recarregamento
+            preserveScroll: true, // Evita o recarregamento da página
         });
     }
 
