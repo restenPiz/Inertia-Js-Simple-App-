@@ -11,7 +11,11 @@ class parkController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Park');
+        $parks = Park::all();
+
+        return Inertia::render('Park', [
+            'parks' => $parks,
+        ]);
     }
     public function parkStore(Request $request)
     {
@@ -21,7 +25,7 @@ class parkController extends Controller
             'Park_capacity' => ['required', 'max:50'],
         ]));
 
-        return redirect()->route('park.index')->with('success', 'Parque adicionado com sucesso!');
+        return redirect()->route('index')->with('success', 'Parque adicionado com sucesso!');
     }
     public function delete($id)
     {

@@ -6,7 +6,7 @@ import Table from "./parkTable";
 import { useForm } from '@inertiajs/inertia-react';
 import { toast } from 'react-toastify';
 
-export default function Park({ flash }) {
+export default function Park() {
     const { data, setData, post, reset } = useForm({
         Park_name: "",
         Park_location: "",
@@ -23,17 +23,12 @@ export default function Park({ flash }) {
         e.preventDefault();
         post('/parkStore', {
             onSuccess: () => {
+                // toast.success('Parque adicionado com sucesso!');
                 reset(); // Limpa os campos do formulário
             },
             preserveScroll: true, // Evita o recarregamento da página
         });
     }
-
-    React.useEffect(() => {
-        if (flash.success) {
-            toast.success(flash.success);
-        }
-    }, [flash]);
 
     return (
         <>
