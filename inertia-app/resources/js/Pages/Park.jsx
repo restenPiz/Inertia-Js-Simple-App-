@@ -1,12 +1,13 @@
+// import { useState } from "react";
+// import { router } from '@inertiajs/react'
 import React from "react";
 import Sidebar from "../Components/Sidebar";
 import Table from "./parkTable";
-// import { useState } from "react";
-// import { router } from '@inertiajs/react'
 import { useForm } from '@inertiajs/inertia-react';
+import { toast } from 'react-toastify'; // Supondo que você esteja usando react-toastify para os alertas
 
 export default function Park() {
-    const { data, setData, post } = useForm({
+    const { data, setData, post, reset } = useForm({
         Park_name: "",
         Park_location: "",
         Park_capacity: "",
@@ -21,9 +22,14 @@ export default function Park() {
     function handleSubmit(e) {
         e.preventDefault();
         post('/parkStore', {
+            onSuccess: () => {
+                toast.success('Parque adicionado com sucesso!');
+                reset(); // Limpa os campos do formulário
+            },
             preserveScroll: true, // Adiciona isso para evitar o recarregamento
         });
     }
+
     return (
         <>
             <Sidebar />
@@ -37,16 +43,16 @@ export default function Park() {
                 <form className="bg-white p-6 rounded-lg shadow" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div className="sm:col-span-6">
-                            <label htmlFor="Truck_name" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Park_name" className="block text-sm font-medium leading-6 text-gray-900">
                                 Park Name
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="Truck_name"
+                                    id="Park_name"
                                     name="Park_name"
                                     placeholder="Ex: Mabocoto"
                                     type="text"
-                                    value={values.Park_name}
+                                    value={data.Park_name}
                                     onChange={handleChange}
                                     className="w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -54,16 +60,16 @@ export default function Park() {
                         </div>
 
                         <div className="sm:col-span-6">
-                            <label htmlFor="Truck_weight" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Park_location" className="block text-sm font-medium leading-6 text-gray-900">
                                 Park Location
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="Truck_weight"
+                                    id="Park_location"
                                     name="Park_location"
                                     placeholder="Ex: Manica"
                                     type="text"
-                                    value={values.Park_location}
+                                    value={data.Park_location}
                                     onChange={handleChange}
                                     className="w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
@@ -71,16 +77,16 @@ export default function Park() {
                         </div>
 
                         <div className="sm:col-span-6">
-                            <label htmlFor="Driver_name" className="block text-sm font-medium leading-6 text-gray-900">
+                            <label htmlFor="Park_capacity" className="block text-sm font-medium leading-6 text-gray-900">
                                 Total Park Capacity
                             </label>
                             <div className="mt-2">
                                 <input
-                                    id="Driver_name"
+                                    id="Park_capacity"
                                     name="Park_capacity"
                                     placeholder="Total Park Capacity"
                                     type="text"
-                                    value={values.Park_capacity}
+                                    value={data.Park_capacity}
                                     onChange={handleChange}
                                     className="w-full p-6 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                 />
