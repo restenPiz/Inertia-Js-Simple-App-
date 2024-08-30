@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function ModalPark({ isOpen, onClose, park, onSave }) {
+export default function ParkModal({ isOpen, onClose, park, onSave }) {
     const [formData, setFormData] = useState({
-        Park_name: park.Park_name,
-        Park_location: park.Park_location,
-        Park_capacity: park.Park_capacity,
+        Park_name: "",
+        Park_location: "",
+        Park_capacity: "",
     });
+
+    useEffect(() => {
+        if (park) {
+            setFormData({
+                Park_name: park.Park_name || "",
+                Park_location: park.Park_location || "",
+                Park_capacity: park.Park_capacity || "",
+            });
+        }
+    }, [park]);
 
     if (!isOpen) return null;
 
