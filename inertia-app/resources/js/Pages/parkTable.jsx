@@ -87,7 +87,10 @@ export default function ParkTable({ parks, onDelete }) {
                                                 Edit Park
                                             </DialogTitle>
                                             <div className="mt-2">
-                                                <form onSubmit={handleUpdatePark} className="space-y-4">
+                                                <form onSubmit={(e) => {
+                                                    e.preventDefault();
+                                                    handleUpdatePark();
+                                                }} className="space-y-4">
                                                     <div>
                                                         <label className="block text-sm font-medium text-gray-700">
                                                             Park Name
@@ -123,7 +126,7 @@ export default function ParkTable({ parks, onDelete }) {
                                                     </div>
                                                     <div className="flex justify-end space-x-2">
                                                         <button
-                                                            type="submit" onClick={() => handleUpdatePark(park.id)}
+                                                            type="submit"
                                                             className="inline-flex w-full justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:w-auto"
                                                         >
                                                             Save
