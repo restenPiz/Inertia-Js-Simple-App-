@@ -16,10 +16,10 @@ export default function ParkTable({ parks, onDelete }) {
         setIsModalOpen(true);
     }
 
-    function handleUpdatePark(event) {
-        event.preventDefault();
-        console.log("Updated park:", currentPark);
-        setIsModalOpen(false);
+    function handleUpdatePark(id) {
+        if (confirm("Are you sure you want to delete this park?")) {
+            Inertia.delete(`/parkUpdate/${id}`);
+        }
     }
 
     return (
@@ -68,60 +68,66 @@ export default function ParkTable({ parks, onDelete }) {
                     />
 
                     <div className="fixed inset-0 z-10 w-screen overflow-y-auto">
-                        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
                             <DialogPanel
                                 transition
-                                className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-[closed]:translate-y-4 data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in sm:my-8 sm:w-full sm:max-w-lg data-[closed]:sm:translate-y-0 data-[closed]:sm:scale-95"
+                                className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:w-full sm:max-w-lg"
                             >
-                                <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                                <div className="bg-white px-4 py-5 sm:p-6">
                                     <div className="sm:flex sm:items-start">
                                         <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                                             <ExclamationTriangleIcon aria-hidden="true" className="h-6 w-6 text-red-600" />
                                         </div>
                                         <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
-                                            <DialogTitle as="h3" className="text-base font-semibold leading-6 text-gray-900">
+                                            <DialogTitle as="h3" className="text-lg font-semibold leading-6 text-gray-900">
                                                 Edit Park
                                             </DialogTitle>
                                             <div className="mt-2">
-                                                <form onSubmit={handleUpdatePark}>
-                                                    <label>
-                                                        Park Name:
-                                                        <input
-                                                            type="text"
-                                                            value={currentPark?.Park_name || ''}
-                                                            onChange={(e) => setCurrentPark({ ...currentPark, Park_name: e.target.value })}
-                                                            className="border rounded px-2 py-1 w-full"
-                                                        />
-                                                    </label>
-                                                    <label>
-                                                        Park Location:
-                                                        <input
-                                                            type="text"
-                                                            value={currentPark?.Park_location || ''}
-                                                            onChange={(e) => setCurrentPark({ ...currentPark, Park_location: e.target.value })}
-                                                            className="border rounded px-2 py-1 w-full"
-                                                        />
-                                                    </label>
-                                                    <label>
-                                                        Total Capacity:
-                                                        <input
-                                                            type="number"
-                                                            value={currentPark?.Park_capacity || ''}
-                                                            onChange={(e) => setCurrentPark({ ...currentPark, Park_capacity: e.target.value })}
-                                                            className="border rounded px-2 py-1 w-full"
-                                                        />
-                                                    </label>
-                                                    <div className="mt-4 flex justify-end">
+                                                <form onSubmit={handleUpdatePark} className="space-y-4">
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-gray-700">
+                                                            Park Name
+                                                            <input
+                                                                type="text"
+                                                                value={currentPark?.Park_name || ''}
+                                                                onChange={(e) => setCurrentPark({ ...currentPark, Park_name: e.target.value })}
+                                                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                                                            />
+                                                        </label>
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-gray-700">
+                                                            Park Location
+                                                            <input
+                                                                type="text"
+                                                                value={currentPark?.Park_location || ''}
+                                                                onChange={(e) => setCurrentPark({ ...currentPark, Park_location: e.target.value })}
+                                                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                                                            />
+                                                        </label>
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-sm font-medium text-gray-700">
+                                                            Total Capacity
+                                                            <input
+                                                                type="number"
+                                                                value={currentPark?.Park_capacity || ''}
+                                                                onChange={(e) => setCurrentPark({ ...currentPark, Park_capacity: e.target.value })}
+                                                                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                                                            />
+                                                        </label>
+                                                    </div>
+                                                    <div className="flex justify-end space-x-2">
                                                         <button
                                                             type="submit"
-                                                            className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
+                                                            className="inline-flex w-full justify-center rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:w-auto"
                                                         >
                                                             Save
                                                         </button>
                                                         <button
                                                             type="button"
                                                             onClick={() => setIsModalOpen(false)}
-                                                            className="ml-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:ml-0 sm:w-auto"
+                                                            className="inline-flex w-full justify-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-gray-300 hover:bg-gray-50 sm:w-auto"
                                                         >
                                                             Cancel
                                                         </button>

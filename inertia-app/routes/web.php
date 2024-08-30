@@ -22,6 +22,7 @@ Route::get('/storeTruck', [truckController::class, 'store'])->name('storeTruck')
 Route::get('/park', [parkController::class, 'index'])->name('index');
 Route::post('/parkStore', [parkController::class, 'parkStore'])->name('parkStore');
 Route::delete('/parkDelete/{id}', [ParkController::class, 'delete'])->name('parkDelete');
+Route::post('/parkUpdate/{id}', [ParkController::class, 'update'])->name('parkUpdate');
 
 //?Inicio da rota da parte de definicoes
 Route::get('/settings', [settingsController::class, 'index'])->name('settings');
