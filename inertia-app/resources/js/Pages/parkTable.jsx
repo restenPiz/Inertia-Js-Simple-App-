@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import '../src/index.css';
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { Inertia } from '@inertiajs/inertia';
 
 const columns = [
     { Name: 'Park Name', ID: 'Park Location', Total: 'Total_Capacity' },
