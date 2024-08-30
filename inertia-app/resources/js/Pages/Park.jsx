@@ -31,6 +31,7 @@ export default function Park({ parks }) {
         Inertia.get(`/parks/${id}/edit`);
     }
 
+    //*Function to delete all the park datas
     function handleDelete(id) {
         if (confirm("Are you sure you want to delete this park?")) {
             Inertia.delete(`/parkDelete/${id}`);
