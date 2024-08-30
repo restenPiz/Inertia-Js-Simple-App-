@@ -128,7 +128,7 @@ export default function Park({ parks }) {
                 </form>
 
                 <div className="bg-white p-6 rounded-lg shadow">
-                    <ParkTable parks={parks} onDelete={handleDelete} />
+                    <ParkTable parks={parks} onDelete={handleDelete} onEdit={handleEdit} />
                 </div>
 
                 {/*Inicio do link responsavel por chamar o modal*/}
