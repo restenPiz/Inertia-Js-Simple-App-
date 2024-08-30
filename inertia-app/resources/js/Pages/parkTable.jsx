@@ -18,7 +18,6 @@ export default function ParkTable({ parks, onDelete }) {
 
     function handleUpdatePark(event) {
         event.preventDefault();
-        // Aqui você pode adicionar a lógica para atualizar o parque no backend
         console.log("Updated park:", currentPark);
         setIsModalOpen(false);
     }
