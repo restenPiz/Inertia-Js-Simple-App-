@@ -27,7 +27,7 @@ class parkController extends Controller
 
         return redirect()->route('index')->with('success', 'Parque adicionado com sucesso!');
     }
-    public function parkUpdate(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $park = Park::findOrFail($id);
 
