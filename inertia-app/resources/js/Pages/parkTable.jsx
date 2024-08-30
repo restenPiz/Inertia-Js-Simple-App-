@@ -17,8 +17,8 @@ export default function ParkTable({ parks, onDelete }) {
     }
 
     function handleUpdatePark(id) {
-        if (confirm("Are you sure you want to delete this park?")) {
-            Inertia.delete(`/parkUpdate/${id}`);
+        if (confirm("Are you sure you want to update this datas?")) {
+            Inertia.post(`/parkUpdate/${id}`);
         }
     }
 
