@@ -17,6 +17,7 @@ export default function ParkTable({ parks, onDelete }) {
         setIsModalOpen(true);
     }
 
+    //?Inicio da funcao responsavel pelo update dos dados
     function handleUpdatePark(id) {
         if (confirm("Are you sure you want to update this datas?")) {
             Inertia.post(`/parkUpdate/${currentPark.id}`, {
