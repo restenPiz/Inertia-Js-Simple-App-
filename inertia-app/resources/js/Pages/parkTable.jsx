@@ -1,23 +1,22 @@
-
 import React from "react";
 import '../src/index.css';
 
 const columns = [
-    { Name: 'Park Name', ID: 'Park Location', Total: 'Total_Capacity' },
-]
+    { label: 'Park Name', key: 'Park_name' },
+    { label: 'Park Location', key: 'Park_location' },
+    { label: 'Total Capacity', key: 'Park_capacity' },
+];
 
 export default function ParkTable({ parks, onDelete, onEdit }) {
     return (
         <table className="styled-table">
             <thead>
-                {columns.map(column => (
-                    <tr>
-                        <th scope="col" rowSpan="2">{column.Name}</th>
-                        <th scope="col" rowSpan="2">{column.ID}</th>
-                        <th scope="col" rowSpan="2">{column.Total}</th>
-                        <th>Actions</th>
-                    </tr>
-                ))}
+                <tr>
+                    {columns.map((column, index) => (
+                        <th key={index} scope="col">{column.label}</th>
+                    ))}
+                    <th>Actions</th>
+                </tr>
             </thead>
             <tbody>
                 {parks.map((park) => (
@@ -40,6 +39,6 @@ export default function ParkTable({ parks, onDelete, onEdit }) {
                     </tr>
                 ))}
             </tbody>
-        </table >
+        </table>
     );
 }
