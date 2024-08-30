@@ -15,7 +15,7 @@ const rows = [
 export default function MainTable() {
 
     return (
-        <table id="example" className="display">
+        <table id="example" className="styled-table">
             <thead>
                 {columns.map(column => (
                     <tr>

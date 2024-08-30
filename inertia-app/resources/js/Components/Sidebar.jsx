@@ -11,9 +11,7 @@ const user = {
 
 const navigation = [
     { name: 'Dashboard', href: '/index', current: true },
-    { name: 'Truck', href: '/truck', current: false },
     { name: 'Park', href: '/park', current: false },
-    { name: 'Settings', href: '#', current: false },
 ];
 
 const userNavigation = [
