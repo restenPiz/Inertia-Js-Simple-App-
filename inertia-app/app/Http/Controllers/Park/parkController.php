@@ -29,15 +29,17 @@ class parkController extends Controller
     }
     public function parkUpdate(Request $request, $id)
     {
-        $parks = Park::findOrFail($id);
+        $park = Park::findOrFail($id);
 
-        $parks = Park::create($request->validate([
+        $validatedData = $request->validate([
             'Park_name' => ['required', 'max:50'],
             'Park_location' => ['required', 'max:50'],
-            'Park_capacity' => ['required', 'max:50'],
-        ]));
+            'Park_capacity' => ['required', 'numeric'],
+        ]);
 
-        return back()->with('success', 'Parque actualizado com sucesso!');
+        $park->update($validatedData);
+
+        return back()->with('success', 'Parque atualizado com sucesso!');
     }
     public function delete($id)
     {
