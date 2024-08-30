@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import '../src/index.css';
-import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react'
-import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from '@headlessui/react';
+import { ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
 const columns = [
     { Name: 'Park Name', ID: 'Park Location', Total: 'Total_Capacity' },
@@ -18,6 +18,8 @@ export default function ParkTable({ parks, onDelete }) {
 
     function handleUpdatePark(event) {
         event.preventDefault();
+        // Aqui você pode adicionar a lógica para atualizar o parque no backend
+        console.log("Updated park:", currentPark);
         setIsModalOpen(false);
     }
 
@@ -60,7 +62,7 @@ export default function ParkTable({ parks, onDelete }) {
             </table>
 
             {isModalOpen && (
-                <Dialog open={open} onClose={setOpen} className="relative z-10">
+                <Dialog open={isModalOpen} onClose={() => setIsModalOpen(false)} className="relative z-10">
                     <DialogBackdrop
                         transition
                         className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity data-[closed]:opacity-0 data-[enter]:duration-300 data-[leave]:duration-200 data-[enter]:ease-out data-[leave]:ease-in"
@@ -79,69 +81,61 @@ export default function ParkTable({ parks, onDelete }) {
                                         </div>
                                         <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                                             <DialogTitle as="h3" className="text-base font-semibold leading-6 text-gray-900">
-                                                Deactivate account
+                                                Edit Park
                                             </DialogTitle>
                                             <div className="mt-2">
-                                                <p className="text-sm text-gray-500">
-                                                    Are you sure you want to deactivate your account? All of your data will be permanently removed.
-                                                    This action cannot be undone.
-                                                </p>
+                                                <form onSubmit={handleUpdatePark}>
+                                                    <label>
+                                                        Park Name:
+                                                        <input
+                                                            type="text"
+                                                            value={currentPark?.Park_name || ''}
+                                                            onChange={(e) => setCurrentPark({ ...currentPark, Park_name: e.target.value })}
+                                                            className="border rounded px-2 py-1 w-full"
+                                                        />
+                                                    </label>
+                                                    <label>
+                                                        Park Location:
+                                                        <input
+                                                            type="text"
+                                                            value={currentPark?.Park_location || ''}
+                                                            onChange={(e) => setCurrentPark({ ...currentPark, Park_location: e.target.value })}
+                                                            className="border rounded px-2 py-1 w-full"
+                                                        />
+                                                    </label>
+                                                    <label>
+                                                        Total Capacity:
+                                                        <input
+                                                            type="number"
+                                                            value={currentPark?.Park_capacity || ''}
+                                                            onChange={(e) => setCurrentPark({ ...currentPark, Park_capacity: e.target.value })}
+                                                            className="border rounded px-2 py-1 w-full"
+                                                        />
+                                                    </label>
+                                                    <div className="mt-4 flex justify-end">
+                                                        <button
+                                                            type="submit"
+                                                            className="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
+                                                        >
+                                                            Save
+                                                        </button>
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => setIsModalOpen(false)}
+                                                            className="ml-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:ml-0 sm:w-auto"
+                                                        >
+                                                            Cancel
+                                                        </button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                    <button
-                                        type="button"
-                                        onClick={() => setOpen(false)}
-                                        className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                                    >
-                                        Deactivate
-                                    </button>
-                                    <button
-                                        type="button"
-                                        data-autofocus
-                                        onClick={() => setOpen(false)}
-                                        className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                                    >
-                                        Cancel
-                                    </button>
                                 </div>
                             </DialogPanel>
                         </div>
                     </div>
                 </Dialog>
-                // <div className="modal">
-                //     <h2>Edit Park</h2>
-                //     <form onSubmit={handleUpdatePark}>
-                //         <label>
-                //             Park Name:
-                //             <input
-                //                 type="text"
-                //                 value={currentPark.Park_name}
-                //                 onChange={(e) => setCurrentPark({ ...currentPark, Park_name: e.target.value })}
-                //             />
-                //         </label>
-                //         <label>
-                //             Park Location:
-                //             <input
-                //                 type="text"
-                //                 value={currentPark.Park_location}
-                //                 onChange={(e) => setCurrentPark({ ...currentPark, Park_location: e.target.value })}
-                //             />
-                //         </label>
-                //         <label>
-                //             Total Capacity:
-                //             <input
-                //                 type="number"
-                //                 value={currentPark.Park_capacity}
-                //                 onChange={(e) => setCurrentPark({ ...currentPark, Park_capacity: e.target.value })}
-                //             />
-                //         </label>
-                //         <button type="submit">Save</button>
-                //     </form>
-                //     <button onClick={() => setIsModalOpen(false)}>Close</button>
-                // </div>
             )}
         </>
     );
