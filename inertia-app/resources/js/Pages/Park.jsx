@@ -3,8 +3,23 @@ import Sidebar from "../Components/Sidebar";
 import ParkTable from "./parkTable";
 import { useForm, usePage } from '@inertiajs/inertia-react';
 import { Inertia } from '@inertiajs/inertia';
+import { useState } from "react";
+import ModalPark from "../Components/ModalPark";
 
 export default function Park({ parks }) {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [currentPark, setCurrentPark] = useState(null);
+
+    function handleEdit(park) {
+        setCurrentPark(park);
+        setIsModalOpen(true);
+    }
+
+    function handleSave(updatedPark) {
+        setIsModalOpen(false);
+    }
+
     const { data, setData, post, reset } = useForm({
         Park_name: "",
         Park_location: "",
@@ -115,6 +130,14 @@ export default function Park({ parks }) {
                 <div className="bg-white p-6 rounded-lg shadow">
                     <ParkTable parks={parks} onDelete={handleDelete} />
                 </div>
+
+                {/*Inicio do link responsavel por chamar o modal*/}
+                <ModalPark
+                    isOpen={isModalOpen}
+                    onClose={() => setIsModalOpen(false)}
+                    park={currentPark}
+                    onSave={handleSave}
+                />
             </div>
         </>
     );
