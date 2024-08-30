@@ -25,6 +25,8 @@ export default function ParkTable({ parks, onDelete }) {
                 Park_location: currentPark.Park_location,
                 Park_capacity: currentPark.Park_capacity,
             });
+
+            setIsModalOpen(false);
         }
     }
 
